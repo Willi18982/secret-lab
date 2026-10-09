@@ -1,7 +1,11 @@
-// Servicio de ejemplo - NO USAR EN PRODUCCIÓN
-const API_KEY = "REDACTED";
+const { API_KEY } = process.env;
+
+if (!API_KEY) {
+  console.error("Falta API_KEY. Revisa tu archivo .env");
+  process.exit(1);
+}
 
 function conectar() {
-  console.log("Conectando con la clave:", API_KEY);
+  console.log("Conectando con el servicio...");
 }
 conectar();
